@@ -17,6 +17,10 @@
 			<% }else{ %>
 				<a href="Logout.jsp"  class = "navbar-brand">로그아웃</a>
 				<a href="information.jsp" class ="navbar-brand">정보변경</a>
+				<a href="Products.jsp" class="navbar-brand">상품목록</a>
+				<a href="addProduct.jsp" class="navbar-brand">상품등록</a>
+				<a href="editProduct.jsp?edit=update" class="navbar-brand">상품수정</a>
+				<a href="editProduct.jsp?edit=delete" class="navbar-brand">상품삭제</a>
 			<% } %>
 			<a href="List.jsp"  class = "navbar-brand">게시판</a>
 		</font>

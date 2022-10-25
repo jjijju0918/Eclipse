@@ -4,14 +4,13 @@
 <html>
 <head>
 <link rel = "stylesheet" href= "http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
-<title>Insert title here</title>
 </head>
 <body>
 	<nav class = "navbar navbar-expand navbar-dark bg-info"> 
-		<div class = "container">
-			<div class = "navbar-header">
-				<a class = "navbar-brand" href = "welcome.jsp">Home</a>
-			</div>
+		<div class="d-flex justify-content-between"> 
+		<div class = "navbar-header">
+			<a class = "navbar-brand" href = "List.jsp">JSP웹게시판 </a>
+		</div>
 			
 			<div>
 				<ul class="navbar-nav mr-auto">

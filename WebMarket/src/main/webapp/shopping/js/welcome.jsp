@@ -13,7 +13,6 @@
 	<head>
 		<link rel = "stylesheet" 
 			href= "http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
-		<title>상품등록</title>
 	</head>	
 	<body>
 		<jsp:include page="menu.jsp"/>
