@@ -29,7 +29,7 @@
 		<%= request.getAttribute("LoginErrMsg") == null ? "" : request.getAttribute("LoginErrMsg") %>	
 	</span>
 	<%
-		if(session.getAttribute("user") == null || session.getAttribute("admin") == null){
+		if(session.getAttribute("user") == null){
 	%>
 	<script>
 	function validateForm(form){
@@ -67,8 +67,6 @@
 		}else{
 			%>
 				<%NewmemberDTO user = (NewmemberDTO) session.getAttribute("user"); %>
-				<% MemberDTO admin = (MemberDTO)session.getAttribute("admin"); %>
-
    				<%! 
       				String tagline = "Welcome to Web Market!";
    				%>
@@ -77,7 +75,7 @@
    					<div class = "text-center">
    						<h5><%= tagline %></h5>
    						<h6>현재 접속 시각 : <%= sf.format(nowTime) %></h6>
-   						<h3><%= user.getName() %><%= admin.getName() %>회원님, 로그인했습니다.<br/></h3>
+   						<h3><%= user.getName() %>회원님, 로그인했습니다.<br/></h3>
    					</div>
    					<hr>
    				</div>	
