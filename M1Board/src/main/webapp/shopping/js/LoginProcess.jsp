@@ -13,11 +13,12 @@
 	dao.close();
 	
 	if(newmemberDTO.getId() != null){ // 얘는 DB에 정보가 있다.
-		if(newmemberDTO.getId() == NewmemberVO.getAdmin_id()){ // 로그인 한 사용자의 ID가 어드민 ID랑 같다면
+		if(newmemberDTO.getId().equals(NewmemberVO.getAdmin_id())){ // 로그인 한 사용자의 ID가 어드민 ID랑 같다면
 			session.setAttribute("admin", true);
+		}else {
+			session.setAttribute("admin", false);
 		}
 		session.setAttribute("user", newmemberDTO);
-		session.setAttribute("admin", false);
 		response.sendRedirect("LoginForm.jsp");
 	} else {
 		request.setAttribute("LoginErrMsg", "로그인오류입니다");

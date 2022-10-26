@@ -15,7 +15,7 @@
 	String shipping_name = "";
 	String shipping_shippingDate = "";
 	String shipping_country = "";
-	String shipping_zipCode = "";
+	//String shipping_zipCode = "";
 	String shipping_addressName = "";
 	Cookie[] cookies = request.getCookies();
 	
@@ -38,9 +38,9 @@
 			if(n.equals("Shipping_country")){
 				shipping_country = URLDecoder.decode(thisCookie.getValue(),"UTF-8");
 			}
-			if(n.equals("Shipping_zipCode")){
-				shipping_zipCode = URLDecoder.decode(thisCookie.getValue(),"UTF-8");
-			}
+			//if(n.equals("Shipping_zipCode")){
+				//shipping_zipCode = URLDecoder.decode(thisCookie.getValue(),"UTF-8");
+			//}
 			if(n.equals("Shipping_addressName")){
 				shipping_addressName = URLDecoder.decode(thisCookie.getValue(),"UTF-8");
 			}
@@ -52,7 +52,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title> 
+<link rel = "stylesheet" href= "http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
 </head>
 <body>
 
@@ -75,7 +75,7 @@
 			<div class="col-4" align="left">
 				<strong>배송 주소</strong><br />
 				성명 : <%=shipping_name%><br />
-				우편번호 : <%=shipping_zipCode%><br />
+				<!-- 우편번호 : shipping_zipCode <br /> -->
 				주소 : <%=shipping_addressName%><br />(<%=shipping_country%>)<br />
 			</div>
 			<div class="col-4" align="right">

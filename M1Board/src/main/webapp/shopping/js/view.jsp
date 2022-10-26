@@ -57,10 +57,11 @@
 			<td colspan="4" align="center">
 				<%
 				NewmemberDTO user = (NewmemberDTO) session.getAttribute("user");
-				if(user != null && dto.getId().equals(user.getId())){
+				if(user != null && dto.getId().equals(user.getId()) || (Boolean)session.getAttribute("admin")){
 				%>
-				
+				<%if(user != null && dto.getId().equals(user.getId())){%>
 					<button type="button" onclick="location.href='Edit.jsp?num=<%=dto.getNum() %>';" class="btn btn-primary ">수정하기</button>
+					<%} %>
 					<button type="button" onclick="deletePost()" class="btn btn-primary ">삭제하기</button>
 				<%
 				}

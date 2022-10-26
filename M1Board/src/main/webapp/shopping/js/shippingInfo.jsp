@@ -39,14 +39,14 @@
 						<input type = "text" name = "countyu" class="form-control" placeholder = "국가명"/>
 					</div>
 				</div>
-				
+		  <!--  
 				<div class="form-group row">
 					<lebel class="col-sm-2">우편번호</lebel>
 					<div class="col-sm-3">
 						<input type = "text" name = "zipCode" class="form-control" placeholder = "우편번호"/>
 					</div>
 				</div>
-				
+				-->	
 				<div class="form-group row">
 					<lebel class="col-sm-2">주소</lebel>
 					<div class="col-sm-3">
