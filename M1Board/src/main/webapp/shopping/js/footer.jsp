@@ -4,12 +4,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<style type="text/css">
+	footer{
+		background-color: red;
+		text-align: center;
+		font-weight: bold;
+		font-size: 20pt;
+		height: 150px;
+		
+	}
+	a{
+		text-decoration: none;
+	}
+
+</style>
 </head>
 <body>
-	<br>
+	<!-- <br>
 	<footer class = "container">
 		<p>&copy; WebMarket</p>
 	</footer>
+	-->
+	
+	<footer class = "container">
+		<p>&copy;WebMarket</p>
+	</footer>
+	
+
 </body>
 </html>
