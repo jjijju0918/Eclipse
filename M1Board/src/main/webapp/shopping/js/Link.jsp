@@ -23,6 +23,7 @@
 				<a href="information.jsp" class ="navbar-brand">정보변경</a>
 				
 				<% if((boolean) session.getAttribute("admin")){ %>
+				
 				<a href="addProduct.jsp" class="navbar-brand">상품등록</a>
 				<a href="editProduct.jsp?edit=update" class="navbar-brand">상품수정</a>
 				<a href="editProduct.jsp?edit=delete" class="navbar-brand">상품삭제</a>

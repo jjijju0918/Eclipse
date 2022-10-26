@@ -14,7 +14,6 @@
 	
 	if(newmemberDTO.getId() != null){ // 얘는 DB에 정보가 있다.
 		if(newmemberDTO.getId() == NewmemberVO.getAdmin_id()){ // 로그인 한 사용자의 ID가 어드민 ID랑 같다면
-			System.out.println(newmemberDTO.getId());
 			session.setAttribute("admin", true);
 		}
 		session.setAttribute("user", newmemberDTO);
