@@ -67,7 +67,7 @@ NewmemberDTO upmember = (NewmemberDTO) session.getAttribute("user");
 				<div class="form-group row">
 					<lebel class="col-sm-2">성명</lebel>
 					<div class="col-sm-3">
-						<input type = "text" name = "name" class="form-control" placeholder = "성명" />
+						<input type = "text" name = "name" class="form-control" placeholder = "성명"  value='<%=upmember.getName() %>'/>
 					</div>
 				</div>
 				
@@ -88,7 +88,7 @@ NewmemberDTO upmember = (NewmemberDTO) session.getAttribute("user");
 				<div class="form-group row">
 					<lebel class="col-sm-2">주소</lebel>
 					<div class="col-sm-3">
-						<input type = "text" name = "addressName" class="form-control" placeholder = "주소"/>
+						<input type = "text" name = "addressName" class="form-control" placeholder = "주소"  value='<%=upmember.getAddress() %>'/>
 					</div>
 				</div>
 				

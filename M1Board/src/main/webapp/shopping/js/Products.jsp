@@ -9,13 +9,41 @@
 	request.setCharacterEncoding("UTF-8");
 	DecimalFormat dFormat = new DecimalFormat("###,###");
 %>
+        
 <!DOCTYPE html>
 <jsp:useBean id = "productDAO" class = "com.dao.ProductRepository" scope="session"/> 
 <html>
 	<head>
-		<link rel = "stylesheet" 
-			href= "http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+		<link rel = "stylesheet" href= "http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<title>상품목록</title>
+		 <style>
+            .my_modal {
+                display: none;
+                width: 800px;
+                padding: 20px 60px;
+                background-color: #fefefe;
+                border: 1px solid #888;
+                border-radius: 3px;
+            }
+
+            .my_modal .modal_close_btn {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            	
+               
+            }
+            iframe{
+            	width : 60vh; 
+            	height: 70vh;
+            }
+            fixed{
+            	display: flex;
+            }
+           
+        </style>
 	</head>
 	<body>
 		<jsp:include page="Link.jsp"/>
@@ -42,13 +70,23 @@
 					while(rs.next()){
 			
 				%>
+        		
 				<div class="col-md-4">
 						<img alt="이미지" src="resources/images/<%=rs.getString("filename") %>" style="width:50%">
 						<h3><%=rs.getString("pname")%></h3>
 						<p><%=rs.getString("description") %></p>
 						<p><%=dFormat.format(Integer.parseInt(rs.getString("unitPrice"))) %>원</p>
-						<p><a href="./product.jsp?id=<%=rs.getString("productID")%>"class = "btn btn-secondary">상세정보 &raquo;></a>	
+						
+						<div class="my_modal">
+              				<iframe src="./product.jsp?id=<%=rs.getString("productID")%>" id="chat_iframe" frameborder=0 framespacing=0 marginheight=0 marginwidth=0 scrolling=yes vspace=0></iframe> 
+              				<%System.out.println(rs.getString("productID")); %> 
+            			<a class="modal_close_btn">X</a>
+        				</div>
+						<div class="flex">
+        					<button class ="popup_open_btn">상세정보</button>
+        				</div>
 				</div>
+			
 				<%
 				}
 					if(rs != null) rs.close();
@@ -58,6 +96,65 @@
 			</div>
 			<hr>
 		</div>
+		<script>
+            function modal(id, j) {
+                var zIndex = 9999;
+                var modal = document.getElementsByClassName(id)[j];
+                var funcs = [];
+                
+                // 모달 div 뒤에 희끄무레한 레이어
+                var bg = document.createElement('div');
+                bg.setStyle({
+                    position: 'fixed',
+                    zIndex: zIndex,
+                    left: '0px',
+                    top: '0px',
+                    width: '100%',
+                    height: '100%',
+                    overflow: 'auto',
+                    // 레이어 색갈은 여기서 바꾸면 됨
+                    backgroundColor: 'rgba(0,0,0,0.4)'
+                });
+                document.body.append(bg);
+
+                // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
+                modal.querySelector('.modal_close_btn').addEventListener('click', function() {
+                	
+                    bg.remove();
+                    modal.style.display = 'none';
+                });
+
+                modal.setStyle({
+                    position: 'fixed',
+                    display: 'block',
+                    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+
+                    // 시꺼먼 레이어 보다 한칸 위에 보이기
+                    zIndex: zIndex + 1,
+
+                    // div center 정렬
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    msTransform: 'translate(-50%, -50%)',
+                    webkitTransform: 'translate(-50%, -50%)'
+                });
+            }
+            // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
+            Element.prototype.setStyle = function(styles) {
+                for (var k in styles) this.style[k] = styles[k];
+                return this;
+            };
+            
+            var elements = document.getElementsByClassName("popup_open_btn");
+
+            for (var i = 0; i < elements.length; i++) {
+            	let j = i; // (?)
+                elements[i].addEventListener('click', function () {
+                	modal('my_modal', j)
+                });
+            }
+            </script>
 		<jsp:include page="footer.jsp"/>
 	</body>
 </html>
