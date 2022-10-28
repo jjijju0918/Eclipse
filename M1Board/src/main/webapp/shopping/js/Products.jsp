@@ -22,28 +22,75 @@
             .my_modal {
                 display: none;
                 width: 800px;
-                padding: 20px 60px;
+                padding: 20px 30px;
                 background-color: #fefefe;
                 border: 1px solid #888;
                 border-radius: 3px;
+                overflow-x: hidden;
+               	overflow-y: auto;
             }
 
             .my_modal .modal_close_btn {
                 position: absolute;
                 top: 10px;
                 right: 10px;
-            	
-               
+                cursor: pointer;
             }
             iframe{
-            	width : 60vh; 
+            	width : 55vh; 
             	height: 70vh;
+            	margin-top: 20px;
+            	
             }
-            fixed{
-            	display: flex;
+            button{
+            	background-color:transparent;
+            	border-radius: 5px;
+            	width: 100px;
+            	padding: 10px 0;
+            	outline: 0;
+            	border: none;
             }
+            .prewrap {
+            	width: 330px;
+            	height: 40px;
+            	overflow:hidden;
+            	word-break: break-word;
+            	text-overflow:ellipsis;
+            	font-size: 15px;
+            	display: -webkit-box;
+            	-webkit-line-clamp: 2;
+            	-webkit-box-orient: vertical;
+           }
            
         </style>
+        <%if(session.getAttribute("user") == null){ %>
+		<script type = "text/javascript">
+	 //장바구니 추가 핸들러함수
+	 	function addToCart(){
+	 		if(confirm("로그인 후 이용해주세요.")){
+	 			location.href='LoginForm.jsp';
+			}
+	 }
+	 function add() {
+		 if(confirm("로그인 후 이용해주세요.")){
+	 			location.href='LoginForm.jsp';
+			}
+	 }
+	 	</script>
+	 	<%} else {%>	
+	 	
+	 	<script type = "text/javascript">
+	 	function addToCart(){
+	 		if(confirm("해당 상품을 장바구니에 추가하겠습니까?")){
+	 			document.addForm.submit();
+	 			confirm("상품이 추가되었습니다.")
+	 		} else {document.addForm.reset();}	
+	 	}
+	 	function add() {
+	 		location.href='./cart.jsp?';
+	 	}
+	 	</script> 
+	 	<%}%>
 	</head>
 	<body>
 		<jsp:include page="Link.jsp"/>
@@ -71,20 +118,25 @@
 			
 				%>
         		
-				<div class="col-md-4">
-						<img alt="이미지" src="resources/images/<%=rs.getString("filename") %>" style="width:50%">
-						<h3><%=rs.getString("pname")%></h3>
-						<p><%=rs.getString("description") %></p>
+				<div class="col-md-4" style="margin-bottom: 50px;">
+						<img alt="이미지" src="resources/images/<%=rs.getString("filename") %>" style="width: 200px; height:200px; margin-top: 10px; ">
+						<h3 style="font-weight: bold;"><%=rs.getString("pname")%></h3>
+						<p class="prewrap"><%=rs.getString("description") %></p>
 						<p><%=dFormat.format(Integer.parseInt(rs.getString("unitPrice"))) %>원</p>
-						
-						<div class="my_modal">
-              				<iframe src="./product.jsp?id=<%=rs.getString("productID")%>" id="chat_iframe" frameborder=0 framespacing=0 marginheight=0 marginwidth=0 scrolling=yes vspace=0></iframe> 
-              				<%System.out.println(rs.getString("productID")); %> 
+							<div class="my_modal">
+              				<iframe src="./product.jsp?id=<%=rs.getString("productID")%>" name="iframe" frameborder="0" scrolling="no"></iframe>
             			<a class="modal_close_btn">X</a>
         				</div>
-						<div class="flex">
-        					<button class ="popup_open_btn">상세정보</button>
+						<div>
+        					<button class ="popup_open_btn" name="button" style="font-size: 16px;font-weight: bold;">상세정보 >> </button>
         				</div>
+        				
+						<p> <form name="addForm" action="./addCart.jsp?id=<%=rs.getString("productID")%>" method = "post">
+	 						<a href="#" class = "btn btn-info" style="background-color: #337ab7" onclick="addToCart()" > 상품주문 &raquo; </a>
+	 						<a href="#" class = "btn btn-warning" onclick="add()">장바구니 &raquo; </a>
+	 					</form>
+						
+				
 				</div>
 			
 				<%

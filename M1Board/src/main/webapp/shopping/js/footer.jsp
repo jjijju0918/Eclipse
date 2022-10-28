@@ -8,7 +8,6 @@
 	footer{
 		
 		font-weight: bold;
-		height: 150px;
 		
 	}
 	a{
