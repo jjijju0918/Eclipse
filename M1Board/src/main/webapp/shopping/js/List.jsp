@@ -65,7 +65,7 @@
   	 <div class="container">
 		<div class="row" >
     <form method="get">  
-    <table class = "table table-striped" style = "text-align: center; border:1px solid #dddddd; margin-left: 300px;">
+    <table class = "table table-striped" style = "text-align: center; border:1px solid #dddddd; width:100%; margin-left: 300px;">
     <tr>
         <td align="center"  style="background-color : #D9E5FF">
             <select name="searchField"> 
@@ -84,7 +84,7 @@
     <!-- 임시 선택숫자 -->
     
     <form method = "post" action="List.jsp">
-    <table style = "width:88.5%; margin-left: 550px; margin-bottom: 10px;  ">
+    <table style = "width:93%; margin-left: 500px; margin-bottom: 10px;  ">
     <tr>
     	<td> <b>전체 게시글 수 : <%= totalCount %></b></td>
         <td>
@@ -105,7 +105,7 @@
     <div class="container">
 		<div class="row" align="center">
     <!-- 게시물 목록 테이블(표) -->
-    <table class = "table table-striped" style = "text-align: center; border:1px solid #dddddd; margin-left: 50px; " >
+    <table class = "table table-striped" style="text-align: center; border:1px solid #dddddd; align:center; " >
         <!-- 각 칼럼의 이름 --> 
         <tr>
             <th width="10%">번호</th>
@@ -147,9 +147,9 @@ else {
     </table>
     <div class="container">
 		<div class="row" align="center">
-			<table style = "width:88.5%; margin-left: 200px;" >
+			<table style="width: 100%; margin-left: 80px;" >
 				<tr>
-					<td align = "center">
+					<td align="center">
 						<ul class="pagination">
 							<% if(searchField != null && searchWord != null){%>
 								<li><a href="List.jsp?page=1&searchField=<%=searchField %>&searchWord=<%=searchWord%>"><span>«</span></a></li>
@@ -185,7 +185,7 @@ else {
 						</ul>
 					</td>
 					<% if(session.getAttribute("user") == null){} else{ %>
-					<td align = "right">
+					<td  align="right" width="70px;">
 						<input type="button"  onclick="location.href='Write.jsp';" class="btn btn-primary " value="글쓰기"/>
 					</td>
 					<%} %>

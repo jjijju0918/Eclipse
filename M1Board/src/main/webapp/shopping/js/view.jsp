@@ -19,6 +19,16 @@
 <meta charset="UTF-8">
 <title>회원 게시판</title>
 <link rel = "stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+<style type="text/css">
+	table {
+		width:100%;
+  		border-collapse: separate;
+  		border-spacing: 0 10px;
+	}
+
+
+
+</style>
 </head>
 <body>
 <jsp:include page="Link.jsp"/>
@@ -28,8 +38,9 @@
 			<h1 class = "display-3"><b>회원게시판-상세보기(view)</b></h1>
 		</div> 
    	</div>
-<form name="writeFrm" method="get" class="form-horizontal">
-	<input type="hidden" name="num" value="<%=num %>"/>
+   	<%if(session.getAttribute("user") == null){ %>
+	<form name="writeFrm" method="get" class="form-horizontal">
+		<input type="hidden" name="num" value="<%=num %>"/>
 	<table class = "table table-striped" style = "text-align: center; border:1px solid #dddddd; width: 90%; margin-left: 50px; table-layout: fixed;">
 		<tr>
 			<td>번호</td>
@@ -52,7 +63,35 @@
 			<td colspan="3"  >
 				<%= dto.getContent().replace("\r\n", "<br/>") %></td>
 		</tr>
-		
+		<tr>
+			<td colspan="4" align="center">
+			<button type="button" onclick="location.href='List.jsp';" class="btn btn-primary ">목록보기</button>
+		<tr>
+		<%} else {%>
+		<form name="writeFrm" method="get" class="form-horizontal">
+			<input type="hidden" name="num" value="<%=num %>"/>
+			<table class = "table table-striped" style = "text-align: center; border:1px solid #dddddd; width: 90%; margin-left: 50px; table-layout: fixed;">
+		<tr>
+			<td>번호</td>
+			<td><%=dto.getNum() %></td>
+			<td>작성자</td>
+			<td><%=dto.getName() %></td>
+		</tr>
+		<tr>
+			<td>작성일</td>
+			<td><%=dto.getPostdate() %></td>
+			<td>조회수</td>
+			<td><%=dto.getVisitcount() %></td>
+		</tr>
+		<tr>
+			<td>제목</td>
+			<td colspan="3"><%=dto.getTitle() %></td>
+		</tr>
+		<tr>
+			<td>내용</td>
+			<td colspan="3"  >
+				<%= dto.getContent().replace("\r\n", "<br/>") %></td>
+		</tr>
 		<tr>
 			<td colspan="4" align="center">
 				<%
@@ -67,8 +106,11 @@
 				}
 				%>
 				<button type="button" onclick="location.href='List.jsp';" class="btn btn-primary ">목록보기</button>
-			</td>
-		</tr>
+				</td>
+		</tr>	
+		</table>
+	</form>
+	<%} %>
 	</table>
 </form>
 <script>
@@ -76,7 +118,7 @@
 		var confirmed = confirm("정말로 삭제하겠습니까?");
 		console.log(confirmed)
 		if(confirmed){
-			var form = document.writeFrm;
+			var form = document.writeFrm1;
 			form.method ="post";
 			form.action="DeleteProcess.jsp";
 			form.submit();
