@@ -14,6 +14,7 @@
 
 --product 테이블 생성--
 drop table if exists product;
+
 create table product(
 	productID	varchar(10)	not null,
 	pname		varchar(20),

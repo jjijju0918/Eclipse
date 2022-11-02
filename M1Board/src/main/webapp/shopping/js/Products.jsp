@@ -40,6 +40,7 @@
             	width : 60vh; 
             	height: 70vh;
             	margin-top: 20px;
+               
             	
             }
             button{
@@ -99,11 +100,11 @@
 						<p class="prewrap"><%=rs.getString("description") %></p>
 						<p><%=dFormat.format(Integer.parseInt(rs.getString("unitPrice"))) %>원</p>
 							<div class="my_modal">
-              				<iframe src="./product.jsp?id=<%=rs.getString("productID")%>" name="iframe" frameborder="0" scrolling="yes"></iframe>
+              				<iframe src="./product.jsp?id=<%=rs.getString("productID")%>" name="iframe" frameborder="0" scrolling="on"></iframe>
             			<a class="modal_close_btn">X</a>
         				</div>
 						<div>
-        					<button class ="popup_open_btn" name="button" style="font-size: 16px;font-weight: bold; color: white;">상세정보</button>
+        					<button class ="btn btn-info" name="button" style="font-size: 16px;padding: 6px 30px;">상세정보</button>
         				</div>
 				</div>
 			
@@ -166,7 +167,7 @@
                 return this;
             };
             
-            var elements = document.getElementsByClassName("popup_open_btn");
+            var elements = document.getElementsByClassName("btn btn-info");
 
             for (var i = 0; i < elements.length; i++) {
             	let j = i; // (?)

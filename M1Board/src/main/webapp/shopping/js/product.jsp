@@ -12,7 +12,8 @@
 	request.setCharacterEncoding("UTF-8");
 	DecimalFormat dFormat = new DecimalFormat("###,###");
 %>
-	<style>
+<html>
+<style>
 		.prewrap{
 			width: 550px;
 			font-size: 15px;
@@ -23,8 +24,7 @@
 			height:300px; 
 			margin-top: 10px;
 		}
-	</style>
-<html>
+</style>
 <link rel = "stylesheet" href= "http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
   <%if(session.getAttribute("user") == null){ %>
 		<script type = "text/javascript">
@@ -92,7 +92,7 @@
 	 			<h2><%=dFormat.format(Integer.parseInt(rs.getString("unitPrice"))) %>원</h2>
 	 			
 	 			<p> <form name="addForm" action="./addCart.jsp?id=<%=rs.getString("productID")%>" method = "post">
-	 					<a href="#" class="btn btn-warning" onclick="addToCart()" style="padding: 6px 80px;" > 상품주문 &raquo; </a>
+	 					<a href="#" class="btn btn-outline-dark" onclick="addToCart()" style=" padding: 6px 80px;" > 상품주문 &raquo; </a>
 	 			</form>
 	 		</div>
 	 		<% 
