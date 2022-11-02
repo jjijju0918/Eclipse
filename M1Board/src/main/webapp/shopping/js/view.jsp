@@ -67,6 +67,8 @@
 			<td colspan="4" align="center">
 			<button type="button" onclick="location.href='List.jsp';" class="btn btn-primary ">목록보기</button>
 		<tr>
+		</table>
+	</form>
 		<%} else {%>
 		<form name="writeFrm" method="get" class="form-horizontal">
 			<input type="hidden" name="num" value="<%=num %>"/>
@@ -107,12 +109,10 @@
 				%>
 				<button type="button" onclick="location.href='List.jsp';" class="btn btn-primary ">목록보기</button>
 				</td>
-		</tr>	
+		</tr>
+		<%} %>	
 		</table>
 	</form>
-	<%} %>
-	</table>
-</form>
 <script>
 	function deletePost(){
 		var confirmed = confirm("정말로 삭제하겠습니까?");
