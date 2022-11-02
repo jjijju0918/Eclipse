@@ -20,7 +20,7 @@
 			request.setCharacterEncoding("UTF-8");
 			
 			String filename="";
-			String realFolder = "D:\\gg\\eclipse_pro\\WebMarket\\src\\main\\webapp\\shopping\\js\\resources\\images";
+			String realFolder = "C:\\Users\\YJ\\git\\repository2\\M1Board\\src\\main\\webapp\\shopping\\js\\resources\\images";
 			
 			MultipartRequest multi = new MultipartRequest(request,realFolder,5*1024*1024,"utf-8",new DefaultFileRenamePolicy());
 			

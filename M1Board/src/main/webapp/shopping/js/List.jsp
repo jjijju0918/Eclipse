@@ -58,7 +58,7 @@
     <jsp:include page="Link.jsp" />  <!-- 공통 링크 -->
 	<div class = "jumbotron">
 		<div class = "container">
-			<h1 class = "display-3"><b>목록(List)</b></h1>
+			<h1 class = "display-3"><b>게시판</b></h1>
 		</div> 
    	</div>
    	
@@ -84,7 +84,7 @@
     <!-- 임시 선택숫자 -->
     
     <form method = "post" action="List.jsp">
-    <table style = "width:100%; margin-left: 430px; margin-bottom: 10px;  ">
+    <table style = "width:88.5%; margin-left: 550px; margin-bottom: 10px;  ">
     <tr>
     	<td> <b>전체 게시글 수 : <%= totalCount %></b></td>
         <td>
@@ -145,10 +145,9 @@ else {
 }
 %>
     </table>
-     
     <div class="container">
 		<div class="row" align="center">
-			<table style = "width :100%; " >
+			<table style = "width:88.5%; margin-left: 200px;" >
 				<tr>
 					<td align = "center">
 						<ul class="pagination">
@@ -196,10 +195,8 @@ else {
 	</div>
 		</div>
 			<hr>
+			<jsp:include page="footer.jsp"/>
 		</div>
 
-
-
- 
 </body>
 </html>

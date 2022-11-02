@@ -71,7 +71,7 @@
 		<jsp:include page="Link.jsp"/>
 		<div class = "jumbotron">
 			<div class = "container">
-				<h1 class = "display-3">상품목록</h1>
+				<h1 class = "display-3"><b>상품목록</b></h1>
 			</div> 
    		</div>
    		<%

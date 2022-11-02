@@ -17,12 +17,26 @@
 		<link rel = "stylesheet" 
 			href= "http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
 		<title>상품수정</title>
+		<style type="text/css">
+			 .prewrap {
+            	width: 330px;
+            	height: 40px;
+            	overflow:hidden;
+            	word-break: break-word;
+            	text-overflow:ellipsis;
+            	font-size: 15px;
+            	display: -webkit-box;
+            	-webkit-line-clamp: 2;
+            	-webkit-box-orient: vertical;
+           }
+		
+		</style>
 	</head>	
 	<body>
 		<jsp:include page="Link.jsp"/>
 		<div class = "jumbotron">
 			<div class = "container">
-				<h1 class = "display-3">상품수정</h1>
+				<h1 class = "display-3"><b>상품수정</b></h1>
 			</div> 
    		</div>
    		<div class="container">
@@ -49,10 +63,10 @@
 			
 				%>
    		
-   		<div class= "col-md-4">
-   			<img alt="이미지" src="resources/images/<%=rs.getString("filename") %>" style="width:50%">
-   			<h3><%=rs.getString("pname") %></h3>
-			<p><%=rs.getString("description") %></p>
+   		<div class= "col-md-4" style="margin-bottom: 50px;">
+   			<img alt="이미지" src="resources/images/<%=rs.getString("filename") %>"  style="width: 200px; height:200px; margin-top: 10px;">
+   			<h3 style="font-weight: bold;"><%=rs.getString("pname") %></h3>
+			<p class="prewrap"><%=rs.getString("description") %></p>
 			<p><%=dFormat.format(Integer.parseInt(rs.getString("unitPrice"))) %>원</p>
    			<p><%
    				if(edit.equals("update")){
