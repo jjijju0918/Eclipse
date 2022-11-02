@@ -19,14 +19,13 @@
 				<a href="LoginForm.jsp"  class = "navbar-brand">로그인</a>
 			<% } else { %>
 				<% if((boolean)session.getAttribute("admin")) { %>	
-					
+					<a href="./cart.jsp?"  class = "navbar-brand">장바구니</a>
 					<a href="addProduct.jsp" class="navbar-brand">상품등록</a>
 					<a href="editProduct.jsp?edit=update" class="navbar-brand">상품수정</a>
 					<a href="editProduct.jsp?edit=delete" class="navbar-brand">상품삭제</a>
 					<a href="Logout.jsp"  class = "navbar-brand">로그아웃</a>
 				<% } else{ %>
 				<a href="information.jsp" class ="navbar-brand">정보변경</a>
-				<a href="./cart.jsp?"  class = "navbar-brand">장바구니</a>
 				<a href="Logout.jsp"  class = "navbar-brand">로그아웃</a>
 				
 			<% } }%>
