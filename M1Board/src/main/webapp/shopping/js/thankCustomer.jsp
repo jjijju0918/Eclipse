@@ -30,13 +30,10 @@
 </head>
 <body>
 <%@ include file="Link.jsp"%>
-	<%! String greeting = "주문완료";%>
 	
 	<div class = "jumbotron">
 		<div class = "container">
-			<h1 class = "display-3">
-				<%= greeting %>
-			</h1>		
+			<h1 class = "display-3"><b>주문완료</b></h1>		
 		</div>
 	</div>
 	
@@ -49,9 +46,7 @@
 		<p>
 			<a href="Products.jsp" class="btn btn-secondary">&laquo; 상품 목록</a>
 		</p>
-		<br>
 	</div>
-	<jsp:include page="footer.jsp"/>
 </body>
 </html>
 

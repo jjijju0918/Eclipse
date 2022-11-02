@@ -57,7 +57,7 @@ NewmemberDTO upmember = (NewmemberDTO) session.getAttribute("user");
 		
 		<div class = "jumbotron">
 			<div class = "container">
-				<h1 class = "display-3">배송 정보</h1>
+				<h1 class = "display-3"><b>배송 정보</b></h1>
 			</div>
    		</div>
 	<div class="container">
@@ -100,8 +100,8 @@ NewmemberDTO upmember = (NewmemberDTO) session.getAttribute("user");
 					</div>
 				</div>
 			</form>
+			<hr>
 		</div>
-		
 		<jsp:include page="footer.jsp"/>
 	
 

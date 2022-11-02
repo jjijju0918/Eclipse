@@ -25,6 +25,7 @@
 					<a href="editProduct.jsp?edit=delete" class="navbar-brand">상품삭제</a>
 					<a href="Logout.jsp"  class = "navbar-brand">로그아웃</a>
 				<% } else{ %>
+				<a href="./cart.jsp?"  class = "navbar-brand">장바구니</a>
 				<a href="information.jsp" class ="navbar-brand">정보변경</a>
 				<a href="Logout.jsp"  class = "navbar-brand">로그아웃</a>
 				

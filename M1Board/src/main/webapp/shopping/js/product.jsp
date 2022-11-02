@@ -31,7 +31,6 @@
 	 //장바구니 추가 핸들러함수
 	 	function addToCart(){
 	 		if(confirm("로그인 후 이용해주세요.")){
-	 			location.href='LoginForm.jsp';
 			}
 	 }
 	 	</script>
@@ -93,7 +92,7 @@
 	 			<h2><%=dFormat.format(Integer.parseInt(rs.getString("unitPrice"))) %>원</h2>
 	 			
 	 			<p> <form name="addForm" action="./addCart.jsp?id=<%=rs.getString("productID")%>" method = "post">
-	 					<a href="#"  class="btn btn-warning" onclick="addToCart()" style="padding: 6px 80px;" > 상품주문 &raquo; </a>
+	 					<a href="#" class="btn btn-warning" onclick="addToCart()" style="padding: 6px 80px;" > 상품주문 &raquo; </a>
 	 			</form>
 	 		</div>
 	 		<% 

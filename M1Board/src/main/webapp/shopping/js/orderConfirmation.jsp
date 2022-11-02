@@ -57,13 +57,10 @@
 <body>
 
 	<%@ include file="Link.jsp"%>
-	<%! String greeting = "주문 정보";%>
 	
 	<div class = "jumbotron">
 		<div class = "container">
-			<h1 class = "display-3">
-				<%= greeting %>
-			</h1>		
+			<h1 class = "display-3"><b>주문 정보</b></h1>		
 		</div>
 	</div>
 	<div class="container col-8 alert alert-info">
