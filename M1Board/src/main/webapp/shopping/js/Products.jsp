@@ -37,19 +37,22 @@
                 cursor: pointer;
             }
             iframe{
-            	width : 55vh; 
+            	width : 60vh; 
             	height: 70vh;
             	margin-top: 20px;
             	
             }
             button{
-            	background-color:transparent;
-            	border-radius: 5px;
-            	width: 100px;
-            	padding: 10px 0;
-            	outline: 0;
-            	border: none;
-            }
+            	background-color:#008CBA; 
+    			border: none;
+    			padding: 10px 25px;
+    			text-align: center;
+    			text-decoration: none;
+    			border-radius: 12px;
+    			display: inline-block;
+    			font-size: 16px;
+    			}
+    			
             .prewrap {
             	width: 330px;
             	height: 40px;
@@ -63,34 +66,6 @@
            }
            
         </style>
-        <%if(session.getAttribute("user") == null){ %>
-		<script type = "text/javascript">
-	 //장바구니 추가 핸들러함수
-	 	function addToCart(){
-	 		if(confirm("로그인 후 이용해주세요.")){
-	 			location.href='LoginForm.jsp';
-			}
-	 }
-	 function add() {
-		 if(confirm("로그인 후 이용해주세요.")){
-	 			location.href='LoginForm.jsp';
-			}
-	 }
-	 	</script>
-	 	<%} else {%>	
-	 	
-	 	<script type = "text/javascript">
-	 	function addToCart(){
-	 		if(confirm("해당 상품을 장바구니에 추가하겠습니까?")){
-	 			document.addForm.submit();
-	 			confirm("상품이 추가되었습니다.")
-	 		} else {document.addForm.reset();}	
-	 	}
-	 	function add() {
-	 		location.href='./cart.jsp?';
-	 	}
-	 	</script> 
-	 	<%}%>
 	</head>
 	<body>
 		<jsp:include page="Link.jsp"/>
@@ -124,19 +99,12 @@
 						<p class="prewrap"><%=rs.getString("description") %></p>
 						<p><%=dFormat.format(Integer.parseInt(rs.getString("unitPrice"))) %>원</p>
 							<div class="my_modal">
-              				<iframe src="./product.jsp?id=<%=rs.getString("productID")%>" name="iframe" frameborder="0" scrolling="no"></iframe>
+              				<iframe src="./product.jsp?id=<%=rs.getString("productID")%>" name="iframe" frameborder="0" scrolling="yes"></iframe>
             			<a class="modal_close_btn">X</a>
         				</div>
 						<div>
-        					<button class ="popup_open_btn" name="button" style="font-size: 16px;font-weight: bold;">상세정보 >> </button>
+        					<button class ="popup_open_btn" name="button" style="font-size: 16px;font-weight: bold; color: white;">상세정보</button>
         				</div>
-        				
-						<p> <form name="addForm" action="./addCart.jsp?id=<%=rs.getString("productID")%>" method = "post">
-	 						<a href="#" class = "btn btn-info" style="background-color: #337ab7" onclick="addToCart()" > 상품주문 &raquo; </a>
-	 						<a href="#" class = "btn btn-warning" onclick="add()">장바구니 &raquo; </a>
-	 					</form>
-						
-				
 				</div>
 			
 				<%

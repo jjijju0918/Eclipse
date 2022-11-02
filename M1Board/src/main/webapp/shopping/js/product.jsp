@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import = "com.dto.Product" %>
 <%@ page import = "com.dao.ProductRepository" %>
 <%@ page import = "java.sql.*" %>
@@ -22,9 +23,29 @@
 			height:300px; 
 			margin-top: 10px;
 		}
-		
 	</style>
 <html>
+<link rel = "stylesheet" href= "http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+  <%if(session.getAttribute("user") == null){ %>
+		<script type = "text/javascript">
+	 //장바구니 추가 핸들러함수
+	 	function addToCart(){
+	 		if(confirm("로그인 후 이용해주세요.")){
+	 			location.href='LoginForm.jsp';
+			}
+	 }
+	 	</script>
+	 	<%} else {%>	
+	 	
+	 	<script type = "text/javascript">
+	 	function addToCart(){
+	 		if(confirm("해당 상품을 장바구니에 추가하겠습니까?")){
+	 			document.addForm.submit();
+	 			confirm("상품이 추가되었습니다.")
+	 		} else {document.addForm.reset();}	
+	 	}
+	 	</script> 
+	 	<%}%>
 
 	<body>
    		
@@ -70,6 +91,10 @@
 	 			<p><b style=" font-size: 20px;">분류</b>: <%=rs.getString("category") %>
 	 			<p><b style=" font-size: 20px;">재고수</b>: <%=rs.getString("UnitsInStock") %>
 	 			<h2><%=dFormat.format(Integer.parseInt(rs.getString("unitPrice"))) %>원</h2>
+	 			
+	 			<p> <form name="addForm" action="./addCart.jsp?id=<%=rs.getString("productID")%>" method = "post">
+	 					<a href="#"  class="btn btn-warning" onclick="addToCart()" style="padding: 6px 80px;" > 상품주문 &raquo; </a>
+	 			</form>
 	 		</div>
 	 		<% 
 					}

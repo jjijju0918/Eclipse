@@ -61,8 +61,11 @@
 			<h1 class = "display-3"><b>목록(List)</b></h1>
 		</div> 
    	</div>
-    <form method="get" class="form-horizontal" >  
-    <table class = "table table-striped" style = "text-align: center; border:1px solid #dddddd; width: 90%; margin-left: 50px;">
+   	
+  	 <div class="container">
+		<div class="row" >
+    <form method="get">  
+    <table class = "table table-striped" style = "text-align: center; border:1px solid #dddddd; margin-left: 300px;">
     <tr>
         <td align="center"  style="background-color : #D9E5FF">
             <select name="searchField"> 
@@ -75,13 +78,16 @@
     </tr>  
     </table>
     </form>
+    	</div>
+    </div>
      
     <!-- 임시 선택숫자 -->
+    
     <form method = "post" action="List.jsp">
-    <table style = "width :90%; margin-left: 50px; ">
+    <table style = "width:100%; margin-left: 430px; margin-bottom: 10px;  ">
     <tr>
     	<td> <b>전체 게시글 수 : <%= totalCount %></b></td>
-        <td  align = "right">
+        <td>
             <select name="search"> 
                 <option value="5" <%= searchInt == 5 ? "selected" : "" %>>5개</option> 
                 <option value="10" <%= searchInt == 10 ? "selected" : "" %>>10개</option>
@@ -93,10 +99,13 @@
     </tr>   
     </table>
     </form>
+    	
     
-    
+
+    <div class="container">
+		<div class="row" align="center">
     <!-- 게시물 목록 테이블(표) -->
-    <table class = "table table-striped" style = "text-align: center; border:1px solid #dddddd; width: 90%; margin-left: 50px; ">
+    <table class = "table table-striped" style = "text-align: center; border:1px solid #dddddd; margin-left: 50px; " >
         <!-- 각 칼럼의 이름 --> 
         <tr>
             <th width="10%">번호</th>
@@ -136,8 +145,9 @@ else {
 }
 %>
     </table>
+     
     <div class="container">
-		<div class="row">
+		<div class="row" align="center">
 			<table style = "width :100%; " >
 				<tr>
 					<td align = "center">
@@ -184,6 +194,11 @@ else {
 			</table> 
 		</div>
 	</div>
+		</div>
+			<hr>
+		</div>
+
+
 
  
 </body>
