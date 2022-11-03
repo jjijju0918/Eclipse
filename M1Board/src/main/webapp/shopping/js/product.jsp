@@ -26,6 +26,7 @@
 		}
 </style>
 <link rel = "stylesheet" href= "http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+
   <%if(session.getAttribute("user") == null){ %>
 		<script type = "text/javascript">
 	 //장바구니 추가 핸들러함수
@@ -41,7 +42,7 @@
 	 		if(confirm("해당 상품을 장바구니에 추가하겠습니까?")){
 	 			document.addForm.submit();
 	 			confirm("상품이 추가되었습니다.")
-	 		} else {document.addForm.reset();}	
+	 		} else {document.addForm.reset();}
 	 	}
 	 	</script> 
 	 	<%}%>
@@ -92,7 +93,7 @@
 	 			<h2><%=dFormat.format(Integer.parseInt(rs.getString("unitPrice"))) %>원</h2>
 	 			
 	 			<p> <form name="addForm" action="./addCart.jsp?id=<%=rs.getString("productID")%>" method = "post">
-	 					<a href="#" class="btn btn-outline-dark" onclick="addToCart()" style=" padding: 6px 80px; margin-top: 50px;" > 상품주문 &raquo; </a>
+	 					<a href="#" class="btn btn-outline-dark" onclick="addToCart()" style="padding: 6px 80px; margin-top: 50px;" > 상품주문 &raquo; </a>
 	 			</form>
 	 		</div>
 	 		<% 

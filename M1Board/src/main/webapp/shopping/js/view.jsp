@@ -20,12 +20,7 @@
 <title>회원 게시판</title>
 <link rel = "stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
 <style type="text/css">
-	tr.space {
-		/*width:100%;
-  		border-collapse: separate;
-  		border-spacing: 0 500px;
-  		border-bottom: 50px solid #ddd;*/
-	}
+
 	.table-striped {
 		text-align: center;
 		border:1px solid #dddddd; 
@@ -55,29 +50,29 @@
 		<input type="hidden" name="num" value="<%=num %>"/>
 	<table class = "table table-striped" style = "width: 70%; ">
 		<tr>
-			<td><div style="margin:20px">번호</div></td>
-			<td><div style="margin:20px"><%=dto.getNum() %></div></td>
-			<td><div style="margin:20px">작성자</div></td>
-			<td><div style="margin:20px"><%=dto.getName() %></div></td>
+			<td><div style="margin:10px">번호</div></td>
+			<td><div style="margin:10px"><%=dto.getNum() %></div></td>
+			<td><div style="margin:10px">작성자</div></td>
+			<td><div style="margin:10px"><%=dto.getName() %></div></td>
 		</tr>
 		<tr >
-			<td> <div style="margin:20px">작성일</div></td>
-			<td><div style="margin:20px"><%=dto.getPostdate() %></div></td>
-			<td><div style="margin:20px">조회수</div></td>
-			<td><div style="margin:20px"><%=dto.getVisitcount() %></div></td>
+			<td> <div style="margin:10px">작성일</div></td>
+			<td><div style="margin:10px"><%=dto.getPostdate() %></div></td>
+			<td><div style="margin:10px">조회수</div></td>
+			<td><div style="margin:10px"><%=dto.getVisitcount() %></div></td>
 		</tr>
 		<tr>
-			<td><div style="margin:20px">제목</div></td>
+			<td><div style="margin:10px">제목</div></td>
 			<td colspan="3"><div style="margin:20px"><%=dto.getTitle() %></div></td>
 		</tr>
 		<tr>
-			<td><div style="margin:20px">내용</div></td>
+			<td><div style="margin:10px">내용</div></td>
 			<td colspan="3"  >
-				<div style="margin:20px"><%= dto.getContent().replace("\r\n", "<br/>") %></div></td>
+				<div style="margin:10px"><%= dto.getContent().replace("\r\n", "<br/>") %></div></td>
 		</tr>
 		<tr>
 			<td colspan="4" align="center">
-			<div style="margin:20px">
+			<div style="margin:10px">
 			<button type="button" onclick="location.href='List.jsp';" class="btn btn-secondary" style="font-size: 16px; padding: 5px 25px;">목록보기</button>
 			</div>
 		</tr>
@@ -88,29 +83,29 @@
 		<input type="hidden" name="num" value="<%=num %>"/>
 	<table class = "table table-striped" style = "width: 70%; ">
 		<tr>
-			<td><div style="margin:20px">번호</div></td>
-			<td><div style="margin:20px"><%=dto.getNum() %></div></td>
-			<td><div style="margin:20px">작성자</div></td>
-			<td><div style="margin:20px"><%=dto.getName() %></div></td>
+			<td><div style="margin:10px">번호</div></td>
+			<td><div style="margin:10px"><%=dto.getNum() %></div></td>
+			<td><div style="margin:10px">작성자</div></td>
+			<td><div style="margin:10px"><%=dto.getName() %></div></td>
 		</tr>
 		<tr >
-			<td> <div style="margin:20px">작성일</div></td>
-			<td><div style="margin:20px"><%=dto.getPostdate() %></div></td>
-			<td><div style="margin:20px">조회수</div></td>
-			<td><div style="margin:20px"><%=dto.getVisitcount() %></div></td>
+			<td> <div style="margin:10px">작성일</div></td>
+			<td><div style="margin:10px"><%=dto.getPostdate() %></div></td>
+			<td><div style="margin:10px">조회수</div></td>
+			<td><div style="margin:10px"><%=dto.getVisitcount() %></div></td>
 		</tr>
 		<tr>
-			<td><div style="margin:20px">제목</div></td>
+			<td><div style="margin:10px">제목</div></td>
 			<td colspan="3"><div style="margin:20px"><%=dto.getTitle() %></div></td>
 		</tr>
 		<tr>
-			<td><div style="margin:20px">내용</div></td>
+			<td><div style="margin:10px">내용</div></td>
 			<td colspan="3"  >
-				<div style="margin:20px"><%= dto.getContent().replace("\r\n", "<br/>") %></div></td>
+				<div style="margin:10px"><%= dto.getContent().replace("\r\n", "<br/>") %></div></td>
 		</tr>
 		<tr>
 			<td colspan="4" align="center">
-				<div style="margin:20px">
+				<div style="margin:10px">
 				<%
 				NewmemberDTO user = (NewmemberDTO) session.getAttribute("user");
 				if(user != null && dto.getId().equals(user.getId()) || (Boolean)session.getAttribute("admin")){

@@ -58,5 +58,5 @@
 			
 		}
 		
-		response.sendRedirect("Products.jsp?id=" + id);	
+		response.sendRedirect("product.jsp?id=" + id);	
 		%>
