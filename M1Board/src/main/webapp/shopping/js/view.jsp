@@ -124,6 +124,7 @@
 		<%} %>	
 		</table>
 	</form>
+	
 <script>
 	function deletePost(){
 		var confirmed = confirm("정말로 삭제하겠습니까?");
