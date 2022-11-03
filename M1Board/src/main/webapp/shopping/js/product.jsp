@@ -84,7 +84,7 @@
 	 		</div>
 	 		<div class = "col-md-6">
 	 			<h1 style="font-weight: bold; "><%=rs.getString("pname") %></h1>
-	 			<p class="prewrap" style="margin-bottom: 10px;"><%=rs.getString("description") %>
+	 			<p class="prewrap" style="margin-bottom: 20px;"><%=rs.getString("description") %>
 	 			<p><b style=" font-size: 20px;" >상품코드</b> : <span class="badge badge-danger"> <%=rs.getString("productID")%> </span></p>
 	 			<p><b style=" font-size: 20px;">제조사</b> : <%=rs.getString("maufacture") %>
 	 			<p><b style=" font-size: 20px;">분류</b>: <%=rs.getString("category") %>
@@ -92,7 +92,7 @@
 	 			<h2><%=dFormat.format(Integer.parseInt(rs.getString("unitPrice"))) %>원</h2>
 	 			
 	 			<p> <form name="addForm" action="./addCart.jsp?id=<%=rs.getString("productID")%>" method = "post">
-	 					<a href="#" class="btn btn-outline-dark" onclick="addToCart()" style=" padding: 6px 80px;" > 상품주문 &raquo; </a>
+	 					<a href="#" class="btn btn-outline-dark" onclick="addToCart()" style=" padding: 6px 80px; margin-top: 50px;" > 상품주문 &raquo; </a>
 	 			</form>
 	 		</div>
 	 		<% 

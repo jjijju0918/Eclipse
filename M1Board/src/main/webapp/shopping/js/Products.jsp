@@ -21,8 +21,9 @@
 		 <style>
             .my_modal {
                 display: none;
-                width: 800px;
-                padding: 20px 30px;
+                width: 50%;
+                height:70%;
+                padding: 20px 3s0px;
                 background-color: #fefefe;
                 border: 1px solid #888;
                 border-radius: 3px;
@@ -37,11 +38,9 @@
                 cursor: pointer;
             }
             iframe{
-            	width : 60vh; 
-            	height: 70vh;
-            	margin-top: 20px;
-               
-            	
+            	width : 100%;
+            	height : 50vh;
+            	margin-top:100px;
             }
             button{
             	background-color:#008CBA; 
