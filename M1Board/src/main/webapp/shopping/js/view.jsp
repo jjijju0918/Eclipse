@@ -129,7 +129,7 @@
 		var confirmed = confirm("정말로 삭제하겠습니까?");
 		console.log(confirmed)
 		if(confirmed){
-			var form = document.writeFrm1;
+			var form = document.writeFrm;
 			form.method ="post";
 			form.action="DeleteProcess.jsp";
 			form.submit();
